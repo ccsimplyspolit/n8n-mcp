@@ -17,8 +17,6 @@ updates:
       time: "09:00"
       timezone: "UTC"
     open-pull-requests-limit: 10
-    reviewers:
-      - "czlonkowski"
     versioning-strategy: "increase"
     commit-message:
       prefix: "deps"
@@ -64,6 +62,8 @@ updates:
       # so the intent is unambiguous for the package we actually depend on.
       - dependency-name: "@n8n/*"
       - dependency-name: "@n8n/n8n-nodes-langchain"
+      # Transitive dependency pinned inside n8n-nodes-base / @n8n/n8n-nodes-langchain
+      - dependency-name: "qs"
       # @modelcontextprotocol/sdk and zod are pinned to exact versions on purpose:
       # zod v4 breaks the MCP SDK ("_zod" property errors) and the SDK/zod pair is
       # verified by the "Fresh Install Dependency Check" CI guard (see issues
@@ -85,8 +85,6 @@ updates:
       time: "09:00"
       timezone: "UTC"
     open-pull-requests-limit: 5
-    reviewers:
-      - "czlonkowski"
     commit-message:
       prefix: "deps(ui)"
       prefix-development: "deps-dev(ui)"
@@ -122,8 +120,6 @@ updates:
     labels:
       - "github-actions"
       - "dependencies"
-    reviewers:
-      - "czlonkowski"
     rebase-strategy: "auto"
 
   # Monitor Docker base images
@@ -145,6 +141,4 @@ updates:
     labels:
       - "docker"
       - "dependencies"
-    reviewers:
-      - "czlonkowski"
     rebase-strategy: "auto"
